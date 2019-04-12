@@ -7,9 +7,9 @@ import Data from "./src/Data/Data";
 import Swipeup from "./src/Swipeup/Swipeup";
 
 export default class App extends React.Component {
-  renderCard = item => (
+  renderCard = (item, swipe) => (
     <Card title={item.text} image={{ uri: item.uri }} key={item.id}>
-      <Text style={{ marginBottom: 10 }}>I can customize</Text>
+      <Text style={{ marginBottom: 10 }}>{swipe}</Text>
       <Button
         icon={{ name: "code" }}
         backgroundColor="#03A9F4"
@@ -30,12 +30,20 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        {/* <Deck */}
-        <Swipeup
-          data={Data}
-          renderCard={this.renderCard}
-          renderNoMoreCards={this.renderNoMoreCards}
-        />
+        <View>
+          <Swipeup
+            data={Data}
+            renderCard={this.renderCard}
+            renderNoMoreCards={this.renderNoMoreCards}
+          />
+        </View>
+        <View style={{ marginTop: 380 }}>
+          <Deck
+            data={Data}
+            renderCard={this.renderCard}
+            renderNoMoreCards={this.renderNoMoreCards}
+          />
+        </View>
       </View>
     );
   }

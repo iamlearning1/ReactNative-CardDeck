@@ -64,10 +64,19 @@ export default class Swipeup extends React.Component {
   };
 
   onSwipeComplete = direction => {
+    // if (direction == "up") {
+    //   setTimeout(() => {
+    //     this.setState(prevState => ({
+    //       index: prevState.index + 1
+    //     }));
+    //     this.state.position.setValue({ x: 0, y: 0 });
+    //   }, DURATION);
+    // } else {
     this.setState(prevState => ({
       index: prevState.index + 1
     }));
     this.state.position.setValue({ x: 0, y: 0 });
+    // }
   };
 
   getCardStyle = () => {
@@ -95,7 +104,7 @@ export default class Swipeup extends React.Component {
               style={[this.getCardStyle(), styles.cardStyle, { zIndex: 100 }]}
               {...this.state.panResponder.panHandlers}
             >
-              {this.props.renderCard(item)}
+              {this.props.renderCard(item, "Swipe up and down")}
             </Animated.View>
           );
         }
@@ -104,7 +113,7 @@ export default class Swipeup extends React.Component {
             style={[styles.cardStyle, { top: 10 * (index - this.state.index) }]}
             key={item.id}
           >
-            {this.props.renderCard(item)}
+            {this.props.renderCard(item, "Swipe up and down")}
           </Animated.View>
         );
       })

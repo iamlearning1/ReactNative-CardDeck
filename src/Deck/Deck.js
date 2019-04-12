@@ -104,7 +104,7 @@ export default class Deck extends Component {
               style={[this.getCardStyle(), styles.cardStyle]}
               {...this.state.panResponder.panHandlers}
             >
-              {this.props.renderCard(item)}
+              {this.props.renderCard(item, "Swipe left and right")}
             </Animated.View>
           );
         }
@@ -113,7 +113,7 @@ export default class Deck extends Component {
             style={[styles.cardStyle, { top: 10 * (i - this.state.index) }]}
             key={item.id}
           >
-            {this.props.renderCard(item)}
+            {this.props.renderCard(item, "Swipe left and right")}
           </Animated.View>
         );
       })
