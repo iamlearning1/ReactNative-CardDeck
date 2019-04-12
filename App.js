@@ -8,7 +8,6 @@ import Swipeup from "./src/Swipeup/Swipeup";
 
 export default class App extends React.Component {
   renderCard = item => (
-    // <View style={{ height: "80%" }}>
     <Card title={item.text} image={{ uri: item.uri }} key={item.id}>
       <Text style={{ marginBottom: 10 }}>I can customize</Text>
       <Button
@@ -17,7 +16,6 @@ export default class App extends React.Component {
         title="View Now!"
       />
     </Card>
-    // </View>
   );
 
   renderNoMoreCards = () => (
@@ -32,8 +30,8 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Deck
-          // <Swipeup
+        {/* <Deck */}
+        <Swipeup
           data={Data}
           renderCard={this.renderCard}
           renderNoMoreCards={this.renderNoMoreCards}
